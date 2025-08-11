@@ -1,4 +1,5 @@
 let down = false;
+let showgrid=false;
 function generate(size){
     container.innerHTML='';
     for(let i =0; i<size*size; i++)
@@ -27,7 +28,7 @@ generate(16);
 slide.addEventListener("input",()=>slide_text.textContent=`${slide.value} X ${slide.value}`);
 slide.addEventListener("change",()=>generate(slide.value));
 
-showGridBtn.addEventListener("click", ()=>{container.classList.toggle('show-grid'); showGridBtn.classList.toggle('active');});
+showGridBtn.addEventListener("click", ()=>{showgrid=!showgrid;container.classList.toggle('show-grid'); showGridBtn.classList.toggle('active');});
 
 
 let rainbow = false;
@@ -114,3 +115,49 @@ function changeColor(cell)
         }
     }
 }
+
+
+let changed = false;
+
+const saveBtn = document.querySelector(".save");
+saveBtn.addEventListener('click', () => {
+     if(saveBtn.disabled){
+        return;
+    }
+    saveBtn.disabled=true;
+    setTimeout(() => {
+        saveBtn.classList.toggle('active');
+        saveBtn.disabled = false; 
+    }, 3000);
+    const prevBorder = container.style.border;
+    const prevBoxShadow = container.style.boxShadow;
+    if(showgrid)
+    {
+        container.classList.toggle('show-grid');
+        changed = true;
+    }
+    container.style.border = 'none';
+    container.style.boxShadow = 'none';
+    container.style.border = "1px solid white";
+
+
+
+    html2canvas(container, {
+        backgroundColor: null
+    }).then(canvas => {
+        // Restore styles
+        container.style.border = prevBorder;
+        container.style.boxShadow = prevBoxShadow;
+        container.style.border = "0px";
+        if(changed)
+        {
+            container.classList.toggle('show-grid');
+        }
+
+        // Trigger download
+        const link = document.createElement('a');
+        link.download = 'etch-a-sketch.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    });
+});

@@ -142,6 +142,40 @@ input[type="color"]::-webkit-color-swatch {
 
 }
 
+.save{
+
+    align-self: center;
+    width: 12.5rem;
+    height: 5rem;
+    font-size: 1.5rem;
+    text-align: center;
+    background: transparent;
+    border: 0;
+    box-shadow: 0 4px 16px rgb(0, 0, 0); 
+    font-family: scriptin;
+    cursor: pointer;
+    transition: color 2s ease, transform 2s ease, cursor 0.2s ease,box-shadow 0.3s;
+}
+
+.save:hover {
+  transform: scale(1.05);    
+}
+.save:active {
+  transform: scale(0.98); 
+  transition: transform 2.5s ease-in, transform 2.5s ease-out;
+  cursor: wait; 
+
+}
+.save:focus {
+  outline: none;
+}
+
+.save button.active{
+    box-shadow: 0 0 0 4px #f4f0c795; 
+    color: #ebd91395;
+}
+
+
 .footer{
     min-height: 5rem;
     display: flex;
