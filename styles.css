@@ -1,0 +1,195 @@
+@font-face {
+  font-family: 'gunplay';
+  src: url('fonts/gunplay.3d-regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'scriptin';
+  src: url('fonts/SCRIPTIN.ttf') format('truetype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header{
+    font-size: 5.5rem;
+    text-align: center;
+    font-family: scriptin;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom right, white, rgb(238, 232, 170));
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+}
+
+.options{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 2rem;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.options button{
+    width: 12.5rem;
+    height: 2.75rem;
+    font-size: 1.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 1;
+    background: transparent;
+    border: 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18); 
+    font-family: gunplay;
+    cursor: pointer;
+    transition: color 2s ease, transform 2s ease, cursor 0.2s ease,box-shadow 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);    
+}
+button:active {
+  transform: scale(0.98); 
+  transition: transform 2.5s ease-in, transform 2.5s ease-out;
+  cursor: wait; 
+
+}
+button:focus {
+  outline: none;
+}
+
+.options button.active{
+    transition: color 0.3s, box-shadow 2s;
+    box-shadow: 0 0 0 4px #f4f0c795; 
+    color: #ebd91395;
+}
+
+input[type = 'color']{
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    padding: 0;
+    border: none;
+    box-shadow: 0 0 5rem rgb(20, 5, 5);
+
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0; 
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none; 
+  border-radius: 50%;
+}
+
+.slider{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.slide{
+    width: 12.5rem;
+    height: auto;
+    outline: none; 
+}
+
+.slider_text{
+    font-size: 1.25rem;
+    font-family: scriptin;
+    font-weight: 900px;
+}
+
+.container .grid-cell {
+  flex: 0 0 calc(100% / 16); 
+  aspect-ratio: 1 / 1;      
+  box-sizing: border-box;
+  border: none;
+  background-color: transparent;
+}
+
+.show-grid .grid-cell{
+    border: 1px solid #ccc;
+}
+
+
+
+
+.container{
+    display: flex;
+    height: 30rem;
+    width: 30rem;
+    border: 0px;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.492);
+
+}
+
+.footer{
+    min-height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.copyright{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+}
+
+.copytext{
+    color:black;
+    font-family: 'gunplay';
+    font-size: 1.25rem;
+}
+
+.github{
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    object-fit: cover;       
+    overflow: hidden;
+    justify-content: center;
+    border-radius: 50%;
+    align-items: center;
+    margin: 0px;
+    
+    
+}
+.github img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 1.75s ease;
+  flex-shrink:0;
+}
+.github img:hover{
+    transform: scale(1.2) rotate(180deg);
+    transition: transform 0.3s ease-in, transform 2.5s ease-out;
+}
+
+
+ul{
+    list-style: none;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-A-Sketch</title>
+    <link rel = "stylesheet" href="./styles.css">
+    <link rel="icon" href="./images/tab.jpg">
+</head>
+<body>
+    <div class = "header">
+        Etch-A-Sketch
+    </div>
+    <main>
+        <div class = "options">
+            <input class = "pen-color" type = "color" default="red">
+            <button class = "rainbow_color">
+                Rainbow mode
+            </button>
+            <button class = "eraser">
+                Eraser Mode
+            </button>
+            <button class = "Clear">
+                CLEAR
+            </button>
+            <button class = "ShowGridlines">
+                Show Gridlines
+            </button>
+            <div class = "slider">
+                <input type="range" class="slide" min="1" max="64" value="16">
+                <div class = "slider_text"> 16X16</div>
+            </div>
+
+        </div>
+        <div class = "container">
+            Hiiii
+        </div>
+        
+    </main>
+     <div class = "footer">
+        <div class = "copyright">
+            <div class = "copytext">
+                Copyright<span> &#169 </span>The Odin Project <script>document.write(new Date().getFullYear());</script> @
+            </div>
+            <div class = "github">
+                <a href="https://github.com/prs-016/etch-a-sketch#" target="_blank" rel="noopener">
+                    <img src="./images/github.png" , alt="github">
+                </a>
+            </div>
+        </div>
+    </div>
+<audio id="gamemusic" loop autoplay>
+    <source src="./audio/soft-piano-music-312509.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+</audio>
+<script>
+    document.addEventListener('click', () => {
+        document.getElementById('gamemusic').play();
+    }, { once: true });
+
+    document.addEventListener("visibilitychange", () =>
+    {
+        if (document.hidden) 
+        {
+            gamemusic.pause();}
+        else 
+        {
+            gamemusic.play();
+        }
+    });
+</script>
+
+<script src="./script.js"></script>
+
+</body>
+</html>
